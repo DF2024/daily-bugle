@@ -1,4 +1,6 @@
 import DailyLogo from '../assets/logos/DailyLogo.jpg'
+import { Outlet } from "react-router-dom";
+
 
 const Navbar = () => {
     return (
@@ -17,7 +19,7 @@ const Navbar = () => {
                 <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-300"></span>
             </span>
 
-                <div className="grid justify-items-center h-screen mt-4">
+                <div className="grid justify-items-center  mt-3 mb-3">
                     <nav aria-label="Global">
                         <ul className="font-marriweather flex items-center gap-10 text-xl">
                             <li>
@@ -46,9 +48,11 @@ const Navbar = () => {
                         </ul>
                     </nav>
                 </div>
-
-
-
+            <span className="flex items-center mb-4">
+                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-300"></span>
+                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-300"></span>
+            </span>
+            <Outlet />
         </header>
     )
 }

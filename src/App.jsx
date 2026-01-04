@@ -1,13 +1,12 @@
 import './index.css'
-import HomePage from './pages/HomePage'
-import Hero from './layouts/Hero'
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
 
   return (
-
     <div>
-      <HomePage/>
+      <AppRoutes/>
+
     </div>
 
   )
