@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth@0,18..144,100.1;1,18..144,100.1&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+    --font-garamond: "EB Garamond", serif;
+    --font-marriweather: "Merriweather", serif;
+}
