@@ -1,11 +1,13 @@
-
 import Hero from "../layouts/Hero"
+import hero1 from "../assets/images/baxter.jpg"
+
+import hero3 from "../assets/images/spidermanW.jpg"
 
 const HomePage = () => {
-    console.log("HomePage renderizado");
+    const sliderImages = [hero1, hero3]
     return (
         <div>
-            <Hero/>
+            <Hero images={sliderImages}/>
         </div>
     )
 }
