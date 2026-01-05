@@ -49,7 +49,7 @@ export default function Hero({ images, autoSlideInterval = 5000 }) {
 
   return (
     <div
-      className="relative w-full max-w-[1350px] mx-auto overflow-hidden"
+      className="relative w-full mx-auto overflow-hidden"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onTouchStart={handleTouchStart}

@@ -12,11 +12,11 @@ const Navbar = () => {
             </div>
 
             <span className="flex items-center">
-                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-300"></span>
+                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-700"></span>
 
                 <span className="font-garamond shrink-0 px-4 text-xl text-gray-900">The story of heros continues here</span>
 
-                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-300"></span>
+                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-700"></span>
             </span>
 
                 <div className="grid justify-items-center  mt-3 mb-3">
@@ -49,8 +49,8 @@ const Navbar = () => {
                     </nav>
                 </div>
             <span className="flex items-center mb-4">
-                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-300"></span>
-                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-300"></span>
+                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-700"></span>
+                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-700"></span>
             </span>
             <Outlet />
         </header>
