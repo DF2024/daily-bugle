@@ -1,60 +1,84 @@
-import DailyLogo from '../assets/logos/DailyLogo.jpg'
-import { Outlet } from "react-router-dom";
-
+import { useEffect, useState } from "react"
+import { Outlet } from "react-router-dom"
+import DailyLogo from "../assets/logos/DailyLogo.jpg"
 
 const Navbar = () => {
-    return (
-        <header className="bg-white">
-            <div className="grid justify-items-center m-7">
-                <div className='w-32 sm:w-48 md:w-196 lg:w-196 '>
-                    <img src={DailyLogo} alt="dailybuglelogo" />
-                </div>
-            </div>
+  const [isScrolled, setIsScrolled] = useState(false)
 
-            <span className="flex items-center">
-                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-700"></span>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80)
+    }
 
-                <span className="font-garamond shrink-0 px-4 text-xl text-gray-900">The story of heros continues here</span>
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-700"></span>
-            </span>
+  return (
+    <>
+      <header
+        className={`
+          sticky top-0 z-50 bg-white transition-all duration-300
+          ${isScrolled ? "py-2 shadow-md" : "py-6"}
+        `}
+      >
+        {/* LOGO */}
+        <div className="grid justify-items-center">
+          <div
+            className={`
+              transition-all duration-300
+              ${isScrolled ? "w-34" : "w-32 sm:w-48 md:w-156"}
+            `}
+          >
+            <img src={DailyLogo} alt="dailybuglelogo" />
+          </div>
+        </div>
 
-                <div className="grid justify-items-center  mt-3 mb-3">
-                    <nav aria-label="Global">
-                        <ul className="font-marriweather flex items-center gap-10 text-xl">
-                            <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> About </a>
-                            </li>
+        {/* TEXTO CENTRAL */}
+        <span
+          className={`
+            flex items-center transition-all duration-300
+            ${isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100"}
+          `}
+        >
+          <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-700"></span>
 
-                            <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> Careers </a>
-                            </li>
+          <span className="font-garamond shrink-0 px-4 text-xl text-gray-900">
+            The story of heros continues here
+          </span>
 
-                            <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> History </a>
-                            </li>
+          <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-700"></span>
+        </span>
 
-                            <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> Services </a>
-                            </li>
+        {/* NAV */}
+        <div className="grid justify-items-center mt-3 mb-3">
+          <nav aria-label="Global">
+            <ul
+              className={`
+                font-marriweather flex items-center transition-all duration-300
+                ${isScrolled ? "gap-6 text-lg" : "gap-10 text-xl"}
+              `}
+            >
+              <li><a className="text-gray-900 hover:text-gray-500/75" href="#">About</a></li>
+              <li><a className="text-gray-900 hover:text-gray-500/75" href="#">Careers</a></li>
+              <li><a className="text-gray-900 hover:text-gray-500/75" href="#">History</a></li>
+              <li><a className="text-gray-900 hover:text-gray-500/75" href="#">Services</a></li>
+              <li><a className="text-gray-900 hover:text-gray-500/75" href="#">Projects</a></li>
+              <li><a className="text-gray-900 hover:text-gray-500/75" href="#">Blog</a></li>
+            </ul>
+          </nav>
+        </div>
 
-                            <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> Projects </a>
-                            </li>
+        {/* LÍNEA INFERIOR */}
+        <span className="flex items-center mb-4">
+          <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-700"></span>
+          <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-700"></span>
+        </span>
+      </header>
 
-                            <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> Blog </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            <span className="flex items-center mb-4">
-                <span className="h-px flex-1 bg-linear-to-r from-transparent to-gray-700"></span>
-                <span className="h-px flex-1 bg-linear-to-l from-transparent to-gray-700"></span>
-            </span>
-            <Outlet />
-        </header>
-    )
+      <Outlet />
+    </>
+  )
 }
 
 export default Navbar
