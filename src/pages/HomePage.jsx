@@ -13,7 +13,6 @@ const HomePage = () => {
     return (
         <div className="mx-auto">
             <Hero images={sliderImages}/>
-
             <Articles/>
             <Dividers theme={"World"}/>
             <WorldArticle/>
