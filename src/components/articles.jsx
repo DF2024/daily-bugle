@@ -35,9 +35,9 @@ const Articles = ()  => {
                     className="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg"
                 >
                     <img
-                    src={getImage(item)}
-                    alt={item.title}
-                    className="h-56 w-full object-cover"
+                        src={getImage(item)}
+                        alt={item.title}
+                        className="h-56 w-full object-cover"
                     />
                     <div className="bg-white p-4 sm:p-6">
                     <h3 className="mt-0.5 text-2xl text-gray-900">
@@ -54,9 +54,9 @@ const Articles = ()  => {
 
             <article className="font-marriweather text-center group flex flex-col gap-7">
                 <img
-                src={getImage(featured)}
-                alt={featured.title}
-                className="h-[520px] w-full object-cover shadow-xl transition group-hover:grayscale-50"
+                    src={getImage(featured)}
+                    alt={featured.title}
+                    className="h-[520px] w-full object-cover shadow-xl transition group-hover:grayscale-50"
                 />
 
                 <div className="w-[770px] p-4 flex flex-col gap-5">
