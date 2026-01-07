@@ -9,10 +9,10 @@ import Footer from "../layouts/Footer"
 
 
 const HomePage = () => {
-    const sliderImages = [hero1, hero3]
+
     return (
         <div className="mx-auto">
-            <Hero images={sliderImages}/>
+            <Hero/>
             <Articles/>
             <Dividers theme={"World"}/>
             <WorldArticle/>

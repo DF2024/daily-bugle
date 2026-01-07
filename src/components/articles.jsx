@@ -1,100 +1,111 @@
-import daily from '../assets/images/daly.webp'
+import { getArticles } from '../api/ArchiveNews/ArchiveNews'
+import { useEffect, useState } from 'react'
 
-const articles = ()  => {
+
+const Articles = ()  => {
+    const [news, setNews] = useState([])
+
+    useEffect(() => {
+        getArticles().then(setNews)
+    }, [])
+
+    if (!news.length) {
+        return (
+        <div className="h-56 md:h-[640px] flex items-center justify-center">
+            <p className="text-gray-400">Cargando noticias...</p>
+        </div>
+        );
+    }
+
+
+    const featured = news[0];
+    const left = news.slice(1, 3);
+    const right = news.slice(3, 5);
+
+    const getImage = (item) =>
+        item.image_url || item.source_icon || daily;
+
     return(
         <div className='flex mt-10 gap-10 mx-auto max-w-[1442px]'>
-            <div className='flex flex-col gap-5'>
 
-                <article class="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg">
-                    <img src={daily} alt="articulo1" className="h-56 w-full object-cover" />
-                    <div class="bg-white p-4 sm:p-6">
-
-                        <a href="#">
-                        <h3 class="mt-0.5 text-2xl text-gray-900">
-                            How to position your furniture for positivity
-                        </h3>
-                       
-                        </a>
-                        <time datetime="2022-10-10" class="block text-xs text-gray-500"> 10th Oct 2022 </time>
+            <div className="flex flex-col gap-5">
+                {left.map((item) => (
+                <article
+                    key={item.link}
+                    className="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg"
+                >
+                    <img
+                    src={getImage(item)}
+                    alt={item.title}
+                    className="h-56 w-full object-cover"
+                    />
+                    <div className="bg-white p-4 sm:p-6">
+                    <h3 className="mt-0.5 text-2xl text-gray-900">
+                        {item.title}
+                    </h3>
+                    <time className="block text-xs text-gray-500">
+                        {item.pubDate}
+                    </time>
                     </div>
                 </article>
-
-
-                <article class="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg">
-                    <img src={daily} alt="articulo1" className="h-56 w-full object-cover" />
-                    <div class="bg-white p-4 sm:p-6">
-
-                        <a href="#">
-                        <h3 class="mt-0.5 text-2xl text-gray-900">
-                            How to position your furniture for positivity
-                        </h3>
-                        </a>
-                        <time datetime="2022-10-10" class="block text-xs text-gray-500"> 10th Oct 2022 </time>
-                    </div>
-                </article>
-
+                ))}
             </div>
 
 
-            <article class="font-marriweather text-center group flex flex-col gap-7"> 
+            <article className="font-marriweather text-center group flex flex-col gap-7">
+                <img
+                src={getImage(featured)}
+                alt={featured.title}
+                className="h-[520px] w-full object-cover shadow-xl transition group-hover:grayscale-50"
+                />
 
-                <img src={daily} className='h-130 w-full object-cover shadow-xl transition group-hover:grayscale-50' alt="articulo2" />
+                <div className="w-[770px] p-4 flex flex-col gap-5">
+                <h3 className="text-5xl font-medium text-gray-900">
+                    {featured.title}
+                </h3>
 
-                <div class="w-[770px] p-4 flex flex-col gap-5">
-                    <a href="#">
-                        <h3 class="text-5xl font-medium text-gray-900">Finding the Journey to Mordor</h3>
-                    </a>
+                <p className="line-clamp-3 text-sm text-gray-500">
+                    {featured.description}
+                </p>
 
-                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus
-                    pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                  
-                    </p>
-
-                    <a class="group relative inline-block w-[120px] self-center overflow-hidden border border-black px-8 py-3" href="#">
-                        <span class="absolute inset-x-0 bottom-0 h-0.5 bg-black transition-all group-hover:h-full"></span>
-
-                        <span class="relative text-sm font-medium text-black transition-colors group-hover:text-white">
-                            More
-                        </span>
-                    </a>
+                <a
+                    href={featured.link}
+                    target="_blank"
+                    className="group relative inline-block w-[120px] self-center overflow-hidden border border-black px-8 py-3"
+                >
+                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-black transition-all group-hover:h-full" />
+                    <span className="relative text-sm font-medium text-black group-hover:text-white">
+                    More
+                    </span>
+                </a>
                 </div>
             </article>
 
-            <div className='flex flex-col gap-5'>
-
-                <article class="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg">
-                    <img src={daily} alt="articulo1" className="h-56 w-full object-cover" />
-                    <div class="bg-white p-4 sm:p-6">
-
-                        <a href="#">
-                        <h3 class="mt-0.5 text-2xl text-gray-900">
-                            How to position your furniture for positivity
-                        </h3>
-                       
-                        </a>
-                        <time datetime="2022-10-10" class="block text-xs text-gray-500"> 10th Oct 2022 </time>
+            <div className="flex flex-col gap-5">
+                {right.map((item) => (
+                <article
+                    key={item.link}
+                    className="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg"
+                >
+                    <img
+                    src={getImage(item)}
+                    alt={item.title}
+                    className="h-56 w-full object-cover"
+                    />
+                    <div className="bg-white p-4 sm:p-6">
+                    <h3 className="mt-0.5 text-2xl text-gray-900">
+                        {item.title}
+                    </h3>
+                    <time className="block text-xs text-gray-500">
+                        {item.pubDate}
+                    </time>
                     </div>
                 </article>
-
-
-                <article class="font-marriweather overflow-hidden shadow-sm transition hover:shadow-lg">
-                    <img src={daily} alt="articulo1" className="h-56 w-full object-cover" />
-                    <div class="bg-white p-4 sm:p-6">
-
-                        <a href="#">
-                        <h3 class="mt-0.5 text-2xl text-gray-900">
-                            How to position your furniture for positivity
-                        </h3>
-                        </a>
-                        <time datetime="2022-10-10" class="block text-xs text-gray-500"> 10th Oct 2022 </time>
-                    </div>
-                </article>
-
+                ))}
             </div>
 
         </div>
     )
 }
 
-export default articles 
+export default Articles 

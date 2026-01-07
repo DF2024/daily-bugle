@@ -56,6 +56,14 @@ export default function Hero({ autoSlideInterval = 5000 }) {
     if (distance < -50) prevSlide();
   };
 
+  if (!news.length) {
+    return (
+      <div className="h-56 md:h-[640px] flex items-center justify-center">
+        <p className="text-gray-400">Cargando noticias...</p>
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative w-full mx-auto overflow-hidden max-w-[1442px]"
