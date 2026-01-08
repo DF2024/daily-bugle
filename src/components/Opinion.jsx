@@ -23,74 +23,124 @@ const Opinion = () => {
     item.image_url || item.source_icon || daily;
 
     return(
-        <div className="flex mx-auto max-w-[1442px] gap-20">
-            <div className="flex flex-col gap-13 w-[1500px]">
-                {visibleNews.map((item) => (
-                    <article 
-                        key={item.link}
-                        class="flex bg-white transition hover:shadow-xl">
-                        <div class="rotate-180 p-2 [writing-mode:vertical-lr]">
-                            <time datetime="2022-10-10" class="flex items-center justify-between gap-4 text-xs font-bold text-gray-900 uppercase">
-                            <span>2022</span>
-                            <span class="w-px flex-1 bg-gray-900/10"></span>
-                            <span>Oct 10</span>
-                            </time>
-                        </div>
+      <div
+        className="
+            mx-auto max-w-[1442px]
+            flex flex-col gap-12
+            lg:flex-row lg:gap-20
+        "
+        >
+        {/* ================= LEFT: NEWS LIST ================= */}
+        <div className="flex flex-col gap-10 w-full lg:w-3/5">
+            {visibleNews.map((item) => (
+            <article
+                key={item.link}
+                className="
+                flex flex-col sm:flex-row
+                bg-white transition
+                w-full
+                hover:shadow-xl
+                "
+            >
+                {/* DATE */}
+                <div className="rotate-180 p-2 [writing-mode:vertical-lr] hidden sm:block">
+                <time
+                    dateTime="2022-10-10"
+                    className="flex items-center justify-between gap-4 text-xs font-bold text-gray-900 uppercase"
+                >
+                    <span>2022</span>
+                    <span className="w-px flex-1 bg-gray-900/10"></span>
+                    <span>Oct 10</span>
+                </time>
+                </div>
 
-                        <div class="hidden sm:block sm:basis-56">
-                            <img 
-                                alt={item.title} 
-                                src={item.image_url || item.source_icon || "/no-image.jpg"}
-                                class="aspect-square h-full w-full object-cover"/>
-                        </div>
+                {/* IMAGE */}
+                <div className="hidden sm:block sm:basis-48 lg:basis-56">
+                <img
+                    alt={item.title}
+                    src={item.image_url || item.source_icon || "/no-image.jpg"}
+                    className="aspect-square h-full w-full object-cover"
+                />
+                </div>
 
-                        <div class="flex flex-1 flex-col justify-between">
-                            <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                            <a href="#">
-                                <h3 class="font-bold text-gray-900 uppercase">
-                                {item.title}
-                                </h3>
-                            </a>
+                {/* CONTENT */}
+                <div className="flex flex-1 flex-col justify-between">
+                <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+                    <a href="#">
+                    <h3 className="font-bold text-gray-900 uppercase">
+                        {item.title}
+                    </h3>
+                    </a>
 
-                            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                                {item.description}
-                            </p>
-                            </div>
+                    <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                    {item.description}
+                    </p>
+                </div>
 
-                            <div class="sm:flex sm:items-end sm:justify-end">
-                            <a href="#" class="block bg-red-600 px-5 py-3 text-center text-xs font-bold text-gray-200 uppercase transition hover:bg-red-400">
-                                Read Opinion
-                            </a>
-                            </div>
-                        </div>
-                    </article>
-                ))}
-            </div>
-
-            <div>
-                <article class="relative overflow-hidden h-[780px] shadow-sm transition hover:shadow-lg">
-                    <img 
-                        alt={featured.title} 
-                        src={getImage(featured)} 
-                        class="absolute inset-0 h-full w-full object-cover"
-                    />
-
-                    <div class="relative bg-linear-to-t h-[780px] from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
-                        <div class="p-4 sm:p-6">
-                        <time datetime="2022-10-10" class="block text-xs text-white/90"> 10th Oct 2022 </time>
-
-                        <a href="#">
-                            <h3 class="mt-0.5 text-lg text-white">{featured.title}</h3>
-                        </a>
-
-                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
-                            {featured.description}
-                        </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
+                <div className="sm:flex sm:items-end sm:justify-end">
+                    <a
+                    href="#"
+                    className="
+                        block bg-red-600 px-5 py-3
+                        text-center text-xs font-bold
+                        text-gray-200 uppercase transition
+                        hover:bg-red-400
+                    "
+                    >
+                    Read Opinion
+                    </a>
+                </div>
+                </div>
+            </article>
+            ))}
         </div>
+
+        {/* ================= RIGHT: FEATURED ================= */}
+        <div className="w-full lg:w-2/5">
+            <article
+            className="
+                relative overflow-hidden
+                w-full
+                h-80 sm:h-[500px] lg:h-[780px]
+                shadow-sm transition hover:shadow-lg
+            "
+            >
+            {/* IMAGE */}
+            <img
+                alt={featured.title}
+                src={getImage(featured)}
+                className="absolute inset-0 h-full w-full object-cover"
+            />
+
+            {/* OVERLAY */}
+            <div
+                className="
+                relative h-full
+                bg-linear-to-t
+                from-gray-900/60 to-gray-900/30
+                pt-24 sm:pt-40 lg:pt-64
+                "
+            >
+                <div className="p-4 sm:p-6">
+                <time className="block text-xs text-white/90">
+                    10th Oct 2022
+                </time>
+
+                <a href="#">
+                    <h3 className="mt-1 text-lg sm:text-xl lg:text-2xl text-white">
+                    {featured.title}
+                    </h3>
+                </a>
+
+                <p className="mt-2 line-clamp-3 text-sm sm:text-base text-white/95">
+                    {featured.description}
+                </p>
+                </div>
+            </div>
+            </article>
+        </div>
+        </div>
+
     )
 }
 

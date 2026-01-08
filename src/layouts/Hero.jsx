@@ -72,7 +72,7 @@ export default function Hero({ autoSlideInterval = 5000 }) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="relative h-56 md:h-[640px]">
+      <div className="relative h-86 md:h-[640px]">
         {news.map((item, index) => (
           <div
             key={item.link}
@@ -92,7 +92,7 @@ export default function Hero({ autoSlideInterval = 5000 }) {
             <div className="absolute inset-0 bg-black/40" />
 
             <div className="absolute inset-0 flex flex-col items-center gap-4 justify-center z-30 px-4">
-              <h2 className="text-white text-2xl md:text-3xl w-200 font-marriweather font-bold text-center drop-shadow-lg line-clamp-3">
+              <h2 className="text-white text-2xl w-100 md:text-3xl md:w-200 font-marriweather font-bold text-center drop-shadow-lg line-clamp-3">
                 {item.title}
               </h2>
               <p
