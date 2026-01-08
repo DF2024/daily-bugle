@@ -70,15 +70,15 @@ La interfaz está completamente adaptada a distintos tamaños de pantalla (deskt
 
 ## 🎯 Funcionalidades principales
 
-Visualización de noticias en tiempo real
+● Visualización de noticias en tiempo real
 
-Diseño inspirado en el Daily Bugle
+● Diseño inspirado en el Daily Bugle
 
-Interfaz moderna y minimalista
+● Interfaz moderna y minimalista
 
-Renderizado dinámico de contenido
+● Renderizado dinámico de contenido
 
-Consumo eficiente de API externa
+● Consumo eficiente de API externa
 
 ## 📌 Estado del proyecto
 
