@@ -1,6 +1,7 @@
 import { getArticles } from '../api/ArchiveNews/ArchiveNews'
 import { useEffect, useState } from 'react'
-
+import { Link } from 'react-router-dom'
+import DetailsPage from '../pages/DetailsPage'
 
 const Articles = ()  => {
     const [news, setNews] = useState([])
@@ -51,13 +52,20 @@ const Articles = ()  => {
             src={getImage(featured)}
             className="w-full h-64 sm:h-80 lg:h-[520px] object-cover shadow-xl"
             />
-            <div className="w-full max-w-xl lg:max-w-[770px] mx-auto p-4 flex flex-col gap-5">
-            <h3 className="text-2xl sm:text-3xl lg:text-5xl font-medium">
-                {featured.title}
-            </h3>
-            <p className="line-clamp-3 text-sm text-gray-500">
-                {featured.description}
-            </p>
+            <div className="w-full max-w-xl lg:max-w-[770px] mx-auto p-4 flex flex-col items-center gap-5">
+                <h3 className="text-2xl sm:text-3xl lg:text-3xl font-medium">
+                    {featured.title}
+                </h3>
+                <p className="line-clamp-3 text-sm text-gray-500">
+                    {featured.description}
+                </p>
+                <Link to={DetailsPage}>
+                    <button 
+                        class="border-2 border-black w-20 bg-white px-5 py-3 font-semibold text-sm text-black shadow-[4px_4px_0_0] hover:translate-1 hover:shadow-none focus:ring-2 focus:ring-yellow-300 focus:outline-0" 
+                        href="#">
+                        More
+                    </button>
+                </Link>
             </div>
         </article>
 

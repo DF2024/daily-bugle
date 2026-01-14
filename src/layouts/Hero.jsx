@@ -101,6 +101,7 @@ export default function Hero({ autoSlideInterval = 5000 }) {
             </div>
           </div>
         ))}
+
       </div>
 
       {/* Flechas */}
@@ -121,6 +122,8 @@ export default function Hero({ autoSlideInterval = 5000 }) {
         > 
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 text-white text-2xl"> ❯ </span> 
       </button>
+
+
     </div>
   );
 }

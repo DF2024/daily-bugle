@@ -1,6 +1,6 @@
 import DailyLogo from '../assets/logos/DailyLogo.jpg'
 import logoblack from '../assets/logos/trompeta.png'
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useState, useEffect, useRef} from 'react';
 
 
@@ -53,10 +53,11 @@ const Navbar = () => {
                                 <li>
                                     <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> Careers </a>
                                 </li>
-
-                                <li>
-                                    <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> History </a>
-                                </li>
+                                <Link to={'/history'}>
+                                    <li>
+                                        <a className="text-gray-900 transition hover:text-gray-500/75" href="/his"> History </a>
+                                    </li>
+                                </Link>
 
                                 <li>
                                     <a className="text-gray-900 transition hover:text-gray-500/75" href="#"> Services </a>
