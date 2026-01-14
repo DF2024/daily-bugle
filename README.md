@@ -82,8 +82,7 @@ La interfaz está completamente adaptada a distintos tamaños de pantalla (deskt
 
 ## 📌 Estado del proyecto
 
-🟢 Finalizado (detalles a mejorar)
-El proyecto puede seguir escalando con nuevas funcionalidades como filtros por categoría, buscador de noticias o paginación.
+🟠 En proceso (detalles a mejorar)
 
 ## 👨‍💻 Autor
 
