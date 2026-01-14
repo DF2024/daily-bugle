@@ -1,7 +1,11 @@
+import Footer from "../layouts/Footer"
+import MainComponent from "../components/HistoryComponents/Main"
+
 const HistoryPage = () => {
     return (
         <div>
-            <h1>History</h1>
+            <MainComponent/>
+            <Footer/>
         </div>
     )
 }
